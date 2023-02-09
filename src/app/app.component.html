@@ -1,0 +1,69 @@
+<ngx-spinner >
+<div class="d-flex">
+  <p class="text-white me-2">Loading ...</p>
+  <div class="spinner-grow text-primary" role="status">
+  </div>
+</div>
+</ngx-spinner>
+<div class="container">
+  <h1 class="text-center text-danger mt-4">{{form}}</h1>
+</div>
+<div class="container-fluid">
+
+  <div class="main mb-5 bg-white">
+    <div class="row">
+      <div class="content_area col-12 col-lg-6 offset-lg-3 mt-2
+              p-3 bg-white">
+        <div class="create">Create</div>
+        <div class="co_account">User Account</div>
+        <form [formGroup]="createUser" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label class="label_style">First Name</label>
+            <div class="input-group">
+              <input [ngClass]="{'is-invalid': UC.first_name.invalid && (UC.first_name.dirty || UC.first_name.touched )}" type="text" class="form-control" formControlName="first_name" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label_style" for="company_name">Last Name</label>
+            <input [ngClass]="{'is-invalid': UC.last_name.invalid && (UC.last_name.dirty || UC.last_name.touched )}" type="text" class="form-control" formControlName="last_name" placeholder="">
+          </div>
+          <div class="form-group">
+            <label class="label_style" for="company_name">E-mail</label>
+            <input [ngClass]="{'is-invalid': UC.email.invalid && (UC.email.dirty || UC.email.touched )}" type="email" class="form-control" formControlName="email" placeholder="">
+          </div>
+          <div>
+            <label class="label_style" for="company_name">Gender</label>
+            <div class="mt-2">
+              <input [ngClass]="{'is-invalid': UC.gender.invalid && (UC.gender.dirty || UC.gender.touched )}" formControlName="gender" type="radio" value="M">
+              <label class="me-4" for="html">Male</label>
+              <input type="radio" formControlName="gender" value="F">
+              <label for="css">Female</label><br>
+            </div>
+             
+          </div>
+          <div class="form-group">
+            <label class="label_style">Country</label>
+           <div>
+            <select [ngClass]="{'is-invalid': UC.country.invalid && (UC.country.dirty || UC.country.touched )}" class="form-control" formControlName="country">
+              <option value="newyork">NEW YORK</option>
+              <option value="usa">USA</option>
+              <option value="canada">CANADA</option>
+            </select>
+           </div>
+          </div>
+          <div class="form-group">
+            <label class="label_style" for="company_name">Date Of Birth</label>
+            <input [ngClass]="{'is-invalid': UC.dob.invalid && (UC.dob.dirty || UC.dob.touched )}" type="date" class="form-control" formControlName="dob" placeholder="">
+          </div>
+          <div class="form-group">
+            <label class="label_style" for="company_name">Address</label>
+            <input [ngClass]="{'is-invalid': UC.address.invalid && (UC.address.dirty || UC.address.touched )}" type="text" class="form-control" formControlName="address" placeholder="">
+          </div>
+          <div class="text-center"><button type="submit" [disabled]="createUser.invalid" class="btn btn_submit btn-block button  text-white mt-2">SUBMIT</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
